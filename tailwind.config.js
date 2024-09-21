@@ -5,6 +5,23 @@ module.exports = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  daisyui: {
+    themes: [
+      {
+        mytheme: {
+          "primary": "#373A40",
+          "secondary": "#686D76",
+          "accent": "#dc2626",
+          "neutral": "#d1d5db",
+          "base-100": "#e5e7eb",
+          "info": "#3b82f6",
+          "success": "#00ff00",
+          "warning": "#fff308",
+          "error": "#ff0000",
+          },
+        },
+      ],
+    },
   theme: {
     extend: {
       colors: {
@@ -13,5 +30,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 };
