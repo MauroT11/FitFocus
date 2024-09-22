@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 const k2d = K2D({ subsets: ['latin'], weight: ['300', '400', '500'], style: ['normal', 'italic'] })
 
 export const metadata = {
-  title: "Fit Focus",
+  title: "FitFocus",
   description: "Your Fitness, Your Focus",
 };
 
