@@ -33,4 +33,10 @@ body {
   .font-outline-4 {
     -webkit-text-stroke: 4px black;
   }
+  .text-shadow-header {
+    text-shadow: 5px 5px 3px black;
+  }
+  .text-shadow {
+    text-shadow: 2px 2px 1px black;
+  }
 }

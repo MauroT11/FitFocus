@@ -6,6 +6,11 @@ module.exports = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   daisyui: {
+    styled: true,
+      base: true,
+      utils: true,
+      logs: true,
+      rtl: false,
     themes: [
       {
         mytheme: {
@@ -31,4 +36,5 @@ module.exports = {
     },
   },
   plugins: [require("daisyui")],
+  
 };

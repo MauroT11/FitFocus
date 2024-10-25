@@ -10,12 +10,12 @@ export default function Home() {
   return (
     <div className="flex flex-col">
     
-      <div className="min-h-[30rem] relative bg-cover bg-center min-w-full items-center flex flex-col justify-center text-white" style={{ backgroundImage: "url('/images/homeBanner.jpg')" }}>
-          <h1 className="text-9xl font-bold tracking-wider ">FitFocus</h1>
-          <h3 className="text-3xl mb-56">You Fitness, Your Focus.</h3>
+      <div className="min-h-[35rem] relative bg-cover bg-center min-w-full items-center flex flex-col justify-center text-white" style={{ backgroundImage: "url('/images/homeBanner.jpg')" }}>
+          <h1 className="text-9xl font-bold tracking-wider text-shadow-header">FitFocus</h1>
+          <h3 className="text-3xl text-shadow">You Fitness, Your Focus.</h3>
       </div>
 
-      <section id="whatIs" className="flex flex-col items-center gap-8 py-32">
+      <section id="whatIs" className="flex flex-col items-center gap-20 py-24">
         <div className="flex flex-col items-center gap-4"> 
           <h2 className="text-5xl">What is <b>FitFocus</b>?</h2>
           <div className=" w-3/5 flex flex-col items-center px-16">
@@ -41,7 +41,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="flex flex-col gap-8 bg-base-200 items-center py-32">
+      <section className="flex flex-col gap-8 bg-base-200 items-center py-24">
         <div className="text-center flex flex-col gap-4">
           <h2 className="text-5xl">Why use <b>FitFocus?</b></h2>
           <p className="text-lg">No matter your fitness goals, our tools are here to help you achieve and surpass your goals!</p>
@@ -70,7 +70,7 @@ export default function Home() {
       </section> 
       <section className="flex flex-col items-center gap-8 bg-base-300 py-32 text-center">
         <h1 className="text-5xl">Start your fitness journey today with <br /><b>FitFocus</b>!</h1>
-        <button className="btn glass text-4xl bg-orange-500 hover:bg-red-500">Sign Up!</button>
+        <a className="btn glass text-4xl bg-orange-500 hover:bg-red-500" href="/">Sign Up!</a>
         
       </section>
       

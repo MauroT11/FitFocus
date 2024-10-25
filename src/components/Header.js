@@ -34,17 +34,29 @@ export default function Header() {
                     <li><a>BMI</a></li>
                 </ul>
                 </div>
-                <a className="btn btn-ghost text-5xl text-base-100">FitFocus</a>
+                <a className="btn btn-ghost text-5xl text-base-100" href="/">FitFocus</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 text-base-100 text-3xl">
-                <li><a>Calculators</a></li>
+                <li>
+                    <details>
+                    <summary>Calculators</summary>
+                    <ul className="p-1 min-w-full border-2 border-base-300 z-20 absolute text-2xl text-primary">
+                        <li><a href="/calculators/bmi">BMI</a></li>
+                        <li><a href="/calculators/calorie">Daily Calorie</a></li>
+                    </ul>
+                    </details>
+                </li>
                 <li>
                     <details>
                     <summary>Workouts</summary>
-                    <ul className="p-2 text-lg text-primary">
-                        <li><a>Back</a></li>
-                        <li><a>Chest</a></li>
+                    <ul className="p-1 min-w-full border-2 border-base-300 z-20 text-2xl text-primary">
+                        <li><a href="/workouts/arms">Arms</a></li>
+                        <li><a href="/workouts/back">Back</a></li>
+                        <li><a href="/workouts/chest">Chest</a></li>
+                        <li><a href="/workouts/core">Core</a></li>
+                        <li><a href="/workouts/legs">Legs</a></li>
+                        <li><a href="/workouts/shoulders">Shoulders</a></li>
                     </ul>
                     </details>
                 </li>
