@@ -43,6 +43,7 @@ export default function Header() {
                     <summary>Calculators</summary>
                     <ul className="p-1 min-w-full border-2 border-base-300 z-20 absolute text-2xl text-primary">
                         <li><a href="/calculators/bmi">BMI</a></li>
+                        <li><a href="/calculators/protein">Protein</a></li>
                         <li><a href="/calculators/calorie">Daily Calorie</a></li>
                     </ul>
                     </details>
