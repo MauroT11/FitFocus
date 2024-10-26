@@ -39,7 +39,7 @@ const CalorieCalculator = () => {
   return (
     <div className="flex-col border-4 py-8 px-4 rounded-xl border-zinc-300 flex items-center gap-4">
       <label>
-        <select className="select select-bordered text-lg w-full max-w-xs" value={unit} onChange={(e) => setUnit(e.target.value)}>
+        <select className="select select-bordered text-2xl w-full max-w-xs" value={unit} onChange={(e) => setUnit(e.target.value)}>
           <option value="metric">Metric (kg/cm)</option>
           <option value="imperial">Imperial (lbs/inches)</option>
         </select>
@@ -51,23 +51,23 @@ const CalorieCalculator = () => {
           <option value="female">Female</option>
         </select>
       </label>
-        <label className="input max-w-[225px] input-bordered py-4 text-secondary flex border-2 items-center gap-2">
+        <label className="input max-w-[300px] input-bordered py-4 text-secondary flex border-2 items-center gap-2">
             <input
                 type="number"
                 placeholder="Age"
-                className="text-lg"
+                className="text-md"
                 value={age}
                 onChange={(e) => setAge(e.target.value)}
             />
         </label>
       </div>
       <div className="flex gap-4">
-      <label className="input max-w-[225px] input-bordered py-4 text-secondary flex border-2 items-center gap-2">
+      <label className="input max-w-[300px] input-bordered py-4 text-secondary flex border-2 items-center gap-2">
         <input
             type="number"
             placeholder={unit === 'metric' ? 'Weight (kg)' : 'Weight (lbs)'}
             value={weight}
-            className="text-lg"
+            className="text-md"
             onChange={(e) => setWeight(e.target.value)}
         />
         </label>
@@ -76,7 +76,7 @@ const CalorieCalculator = () => {
         type="number"
         placeholder={unit === 'metric' ? 'Height (cm)' : 'Height (inches)'}
         value={height}
-        className="text-lg"
+        className="text-md"
         onChange={(e) => setHeight(e.target.value)}
       />
       </label>

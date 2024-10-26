@@ -7,7 +7,8 @@ import Cards from "@/components/workouts/cards"
 export default function page() {
 
     const [workouts, setWorkouts] = useState([])
-    const [instructions, setInstructions] = useState([])
+
+    const muscle = "arms";
 
     useEffect(() => {
 
@@ -30,25 +31,8 @@ export default function page() {
             setWorkouts(workouts);
           }
         };
-
-        const fetchInstructions = async () => {
-    
-            const { data: instructions, error } = await supabase
-                .from("exercise_instructions")
-                .select("*")
-                .in("exercise_id", [56, 57, 58, 59, 60, 61])
-                
-    
-            if (error) {
-                console.error("Error fetching workouts:", error);
-            } else {
-                console.log(instructions)
-                setInstructions(instructions);
-            }
-        }
     
         fetchWorkout();
-        fetchInstructions();
       }, []);
 
     return(
@@ -64,7 +48,7 @@ export default function page() {
                 <div className="flex flex-col">
                     <div className="max-w-[100%] px-12">
                         {workouts.length > 0 ? (
-                            <Cards workouts={workouts} instructions={instructions} />
+                            <Cards workouts={workouts} muscle={muscle} />
                         ) : (
                             <span className="loading loading-spinner loading-lg"></span>
                         )}

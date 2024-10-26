@@ -64,7 +64,7 @@ export default function Header() {
                 </ul>
             </div>
             <div className="navbar-end ">
-                <a className="btn text-3xl">Button</a>
+                {/* <a className="btn text-3xl">Button</a> */}
             </div>
         </div>
     )

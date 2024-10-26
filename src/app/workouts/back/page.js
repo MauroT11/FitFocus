@@ -6,6 +6,8 @@ import Cards from "@/components/workouts/cards"
 
 export default function page() {
 
+    const muscle = "back";
+
     const [workouts, setWorkouts] = useState([])
     const [instructions, setInstructions] = useState([])
 
@@ -63,7 +65,7 @@ export default function page() {
                 <div className="flex flex-col">
                     <div className="max-w-[100%] px-12">
                         {workouts.length > 0 ? (
-                            <Cards workouts={workouts} instructions={instructions} />
+                            <Cards workouts={workouts} muscle={muscle} />
                         ) : (
                             <span className="loading loading-spinner loading-lg"></span>
                         )}

@@ -30,7 +30,7 @@ const BMICalculator = () => {
     <div className="flex flex-col gap-4">
         <div className="flex flex-col">
       <label className="text-2xl">
-        <select className="select select-bordered text-3xl w-full max-w-xs" value={unit} onChange={(e) => setUnit(e.target.value)}>
+        <select className="select select-bordered text-2xl w-full max-w-xs" value={unit} onChange={(e) => setUnit(e.target.value)}>
           <option value="metric">Metric (kg/cm)</option>
           <option value="imperial">Imperial (lbs/inches)</option>
         </select>
@@ -42,7 +42,7 @@ const BMICalculator = () => {
                 type="number"
                 placeholder={unit === 'metric' ? 'Weight (kg)' : 'Weight (lbs)'}
                 value={weight}
-                className="text-lg"
+                className="text-md"
                 onChange={(e) => setWeight(e.target.value)}
             />
         </label>
@@ -51,7 +51,7 @@ const BMICalculator = () => {
                 type="number"
                 placeholder={unit === 'metric' ? 'Height (cm)' : 'Height (inches)'}
                 value={height}
-                className="text-lg"
+                className="text-md"
                 onChange={(e) => setHeight(e.target.value)}
             />
         </label>
