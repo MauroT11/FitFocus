@@ -1,15 +1,15 @@
 "use client"
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { createClient } from "@supabase/supabase-js";
 import ExerciseInfo from "@/components/workouts/ExerciseInfo"
 
 export default function page({params}) {
 
-    const [workout, setWorkout] = useState([])
-    const [instructions, setInstructions] = useState([])
+    const [workout, setWorkout] = React.useState([])
+    const [instructions, setInstructions] = React.useState([])
 
-    useEffect(() => {
+    React.useEffect(() => {
 
         const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
           const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_KEY;
