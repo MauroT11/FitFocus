@@ -6,10 +6,10 @@ import ExerciseInfo from "@/components/workouts/ExerciseInfo"
 
 export default function page({params}) {
 
-    const [workout, setWorkout] = useState([])
-    const [instructions, setInstructions] = useState([])
+    const [workout, setWorkout] = React.UseState([])
+    const [instructions, setInstructions] = React.UseState([])
 
-    useEffect(() => {
+    React.UseEffect(() => {
 
         const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
           const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_KEY;

@@ -17,7 +17,7 @@ export default function page() {
                 <h1 className="text-8xl font-bold tracking-wider text-shadow-header">Body Mass Index</h1>
             </div>
             <div className="flex flex-col text-center gap-4 my-8 items-center">
-                <p className="text-lg max-w-[1000px]">Body Mass Index (BMI) is a measurement of a person's leanness or corpulence based on their height and weight, and is intended to quantify tissue mass. It is widely used as a general indicator of whether a person has a healthy body weight for their height.</p>
+                <p className="text-lg max-w-[1000px]">Body Mass Index (BMI) is a measurement of a person&apos;s leanness or corpulence based on their height and weight, and is intended to quantify tissue mass. It is widely used as a general indicator of whether a person has a healthy body weight for their height.</p>
                 <div className="flex items-center gap-16">
                 <div className="border-4 rounded-lg py-8 px-4">
                     <BMICalculator />
