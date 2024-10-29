@@ -6,11 +6,11 @@ import Cards from "@/components/workouts/Cards"
 
 export default function page() {
 
-    const [workouts, setWorkouts] = useState([])
+    const [workouts, setWorkouts] = React.useState([])
 
     const muscle = "arms";
 
-    useEffect(() => {
+    React.useEffect(() => {
 
         const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
           const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_KEY;

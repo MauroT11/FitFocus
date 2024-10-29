@@ -8,10 +8,9 @@ export default function page() {
 
     const muscle = "back";
 
-    const [workouts, setWorkouts] = useState([])
-    const [instructions, setInstructions] = useState([])
+    const [workouts, setWorkouts] = ReactuseState([])
 
-    useEffect(() => {
+    React.useEffect(() => {
 
         const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
           const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_KEY;
@@ -33,23 +32,7 @@ export default function page() {
           }
         };
 
-        const fetchInstructions = async () => {
-    
-            const { data: instructions, error } = await supabase
-                .from("exercise_instructions")
-                .select("*")
-                .in("exercise_id", [44, 45, 46, 47, 48, 49])
-    
-            if (error) {
-                console.error("Error fetching workouts:", error);
-            } else {
-                console.log(instructions)
-                setInstructions(instructions);
-            }
-        }
-    
         fetchWorkout();
-        fetchInstructions();
       }, []);
 
     return(

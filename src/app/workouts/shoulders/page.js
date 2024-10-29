@@ -8,9 +8,9 @@ export default function page() {
 
     const muscle = "shoulders";
 
-    const [workouts, setWorkouts] = useState([])
+    const [workouts, setWorkouts] = React.useState([])
 
-    useEffect(() => {
+    React.useEffect(() => {
 
         const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
           const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_KEY;
