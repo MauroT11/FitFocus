@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { createClient } from "@supabase/supabase-js";
 import ExerciseInfo from "@/components/workouts/ExerciseInfo"
 
-export default function page({params}) {
+export default function Page({params}) {
 
     const [workout, setWorkout] = useState([])
     const [instructions, setInstructions] = useState([])

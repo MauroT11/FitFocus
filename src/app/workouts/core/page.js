@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { createClient } from "@supabase/supabase-js";
 import Cards from "@/components/workouts/Cards"
 
-export default function page() {
+export default function Page() {
 
     const muscle = "core";
 
