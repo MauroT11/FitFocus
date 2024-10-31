@@ -42,7 +42,7 @@ export default function Page() {
             </div>
             <div className="flex flex-col gap-4 lg:px-0 py-4 items-center text-center ">
                 <h2 className="text-2xl font-bold">Why train your back muscles?</h2>
-                <p className="max-w-[70rem] lg:text-lg">Training back muscles is essential for a balanced, strong physique. It improves posture, reducing the risk of back pain and injuries. A strong back supports overall movement and stability, enhancing performance in other exercises and daily activities.</p>
+                <p className="max-w-[70rem] px-2 text-sm lg:text-lg">Training back muscles is essential for a balanced, strong physique. It improves posture, reducing the risk of back pain and injuries. A strong back supports overall movement and stability, enhancing performance in other exercises and daily activities.</p>
             </div>
             <div className="flex flex-col gap-8 items-center py-8">
                 <div className="flex flex-col">

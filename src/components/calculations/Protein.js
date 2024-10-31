@@ -35,29 +35,29 @@ const ProteinCalculator = () => {
   };
 
   return (
-    <div className="flex flex-col gap-4 items-center border-4 rounded-xl px-8 py-4">
-        <label className="text-2xl">
-            <select
-            className="select select-bordered border-2 text-secondary text-lg lg:text-2xl w-full max-w-xs"
-            value={unit}
-            onChange={(e) => setUnit(e.target.value)}
-            >
-                <option value="metric">Metric (kg, cm)</option>
-                <option value="imperial">Imperial (lbs, inches)</option>
-            </select>
-        </label>
-        <div className="flex gap-4">
-        <label>
-            <select
-                className="select text-lg select-bordered text-secondary border-2 w-full max-w-xs"
-                value={gender}
-                onChange={(e) => setGender(e.target.value)}
-            >
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-      </select>
+    <div className="flex flex-col gap-4 items-center border-4 rounded-xl px-4 py-4">
+      <label className="text-2xl">
+        <select
+          className="select select-bordered border-2 text-secondary text-lg lg:text-2xl w-full max-w-xs"
+          value={unit}
+          onChange={(e) => setUnit(e.target.value)}
+        >
+          <option value="metric">Metric (kg, cm)</option>
+          <option value="imperial">Imperial (lbs, inches)</option>
+        </select>
       </label>
-      <label className="input max-w-[100px] lg:max-w-[300px] input-bordered py-4 text-secondary flex border-2 items-center gap-2">
+      <div className="flex gap-4">
+        <label>
+          <select
+            className="select text-lg select-bordered text-secondary border-2 w-full max-w-xs"
+            value={gender}
+            onChange={(e) => setGender(e.target.value)}
+          >
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </label>
+      <label className="input max-w-[200px] lg:max-w-[300px] input-bordered py-4 text-secondary flex border-2 items-center gap-2">
       <input
         type="number"
         placeholder="Age"
@@ -85,12 +85,12 @@ const ProteinCalculator = () => {
       </label>
       </div>
       <label>
+      <label className="text-lg text-secondary">Activity Level:</label>
       <select
         className="select text-lg select-bordered text-secondary border-2 w-full max-w-xs"
         value={activityLevel}
         onChange={(e) => setActivityLevel(e.target.value)}
       >
-        <option>Choose Activity level</option>
         <option value="sedentary">Sedentary</option>
         <option value="lightly_active">Lightly Active</option>
         <option value="moderately_active">Moderately Active</option>

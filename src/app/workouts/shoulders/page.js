@@ -42,7 +42,7 @@ export default function Page() {
             </div>
             <div className="flex flex-col gap-4 lg:px-0 py-4 items-center text-center ">
                 <h2 className="text-2xl font-bold">Why train your shoulder muscles?</h2>
-                <p className="max-w-[70rem] lg:text-lg">Training your shoulder muscles is crucial for overall upper body strength and stability. Strong shoulders enhance your ability to perform a wide range of movements and support activities like lifting, pushing, and pulling. They also help maintain good posture and reduce the risk of injuries, especially in the rotator cuff.</p>
+                <p className="max-w-[70rem] px-2 text-sm lg:text-lg">Training your shoulder muscles is crucial for overall upper body strength and stability. Strong shoulders enhance your ability to perform a wide range of movements and support activities like lifting, pushing, and pulling. They also help maintain good posture and reduce the risk of injuries, especially in the rotator cuff.</p>
             </div>
             <div className="flex flex-col gap-8 items-center py-8">
                 <div className="flex flex-col">

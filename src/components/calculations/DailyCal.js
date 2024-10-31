@@ -53,7 +53,7 @@ const CalorieCalculator = () => {
           <option value="female">Female</option>
         </select>
       </label>
-        <label className="input max-w-[100px] lg:max-w-[300px] input-bordered py-4 text-secondary flex border-2 items-center gap-2">
+        <label className="input max-w-[200px] lg:max-w-[300px] input-bordered py-4 text-secondary flex border-2 items-center gap-2">
             <input
                 type="number"
                 placeholder="Age"
@@ -84,6 +84,7 @@ const CalorieCalculator = () => {
       </label>
       </div>
       <label>
+        <label className="text-lg text-secondary">Activity Level:</label>
         <select className="select min-w-[235px] lg:max-w-[300px] text-lg select-bordered text-secondary border-2 w-full" value={activityLevel} onChange={(e) => setActivityLevel(e.target.value)}>
           <option value="sedentary">Sedentary</option>
           <option value="lightly_active">Lightly Active</option>

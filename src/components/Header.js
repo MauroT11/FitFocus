@@ -22,7 +22,7 @@ export default function Header() {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-base-100 text-3xl rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                        className="menu menu-sm dropdown-content bg-base-100 text-3xl rounded-box z-[1] mt-3 w-52 p-2 shadow-lg shadow-primary">
                         <li>
                         <a className="font-bold tracking-widest">Calculators</a>
                         <ul className="p-2">
@@ -71,7 +71,6 @@ export default function Header() {
                     </ul>
                     </details>
                 </li>
-                <li><a>Daily intake</a></li>
                 </ul>
             </div>
             <div className="navbar-end ">

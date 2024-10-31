@@ -41,8 +41,8 @@ export default function Page() {
                 <h1 className="text-4xl lg:text-8xl font-bold tracking-wider text-shadow-header">Legs Workouts</h1>
             </div>
             <div className="flex flex-col gap-4 lg:px- py-4 items-center text-center ">
-                <h2 className="text-2xl font-bold">Why train your core muscles?</h2>
-                <p className="max-w-[70rem] lg:text-lg">Training your leg muscles is essential for overall strength and balance. Strong legs support your body in virtually every physical activity, from walking and running to lifting and jumping. They help improve your posture and reduce the risk of injuries, particularly in your lower back and knees. Plus, working out your legs boosts your metabolism, leading to more efficient calorie burning.</p>
+                <h2 className="text-2xl font-bold">Why train your leg muscles?</h2>
+                <p className="max-w-[70rem] px-2 lg:text-lg">Training your leg muscles is essential for overall strength and balance. Strong legs support your body in virtually every physical activity, from walking and running to lifting and jumping. They help improve your posture and reduce the risk of injuries, particularly in your lower back and knees.</p>
             </div>
             <div className="flex flex-col gap-8 items-center py-8">
                 <div className="flex flex-col">

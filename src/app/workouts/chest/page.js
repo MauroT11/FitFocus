@@ -42,7 +42,7 @@ export default function Page() {
             </div>
             <div className="flex flex-col gap-4 lg:px-0 py-4 items-center text-center ">
                 <h2 className="text-2xl font-bold">Why train your chest muscles?</h2>
-                <p className="max-w-[70rem] lg:text-lg">Training chest muscles is about more than just aesthetics. Strong chest muscles improve overall upper body strength, crucial for pushing movements and functional tasks. They stabilize the shoulder joint, reducing injury risk, and contribute to better posture.</p>
+                <p className="max-w-[70rem] px-2 text-sm lg:text-lg">Training chest muscles is about more than just aesthetics. Strong chest muscles improve overall upper body strength, crucial for pushing movements and functional tasks. They stabilize the shoulder joint, reducing injury risk, and contribute to better posture.</p>
             </div>
             <div className="flex flex-col gap-8 items-center py-8">
                 <div className="flex flex-col">

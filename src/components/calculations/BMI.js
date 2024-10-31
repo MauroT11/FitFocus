@@ -37,7 +37,7 @@ const BMICalculator = () => {
           </label>
         </div>
       <div className="flex flex-col items-center lg:flex-row gap-4">
-        <label className="input max-w-[225px] input-bordered py-8 text-secondary flex border-2 items-center gap-2">
+        <label className="input max-w-[225px] input-bordered py-4 text-secondary flex border-2 items-center gap-2">
             <input
                 type="number"
                 placeholder={unit === 'metric' ? 'Weight (kg)' : 'Weight (lbs)'}
@@ -46,7 +46,7 @@ const BMICalculator = () => {
                 onChange={(e) => setWeight(e.target.value)}
             />
         </label>
-        <label className="input max-w-[225px] input-bordered py-8 text-secondary flex border-2 items-center gap-2">
+        <label className="input max-w-[225px] input-bordered py-4 text-secondary flex border-2 items-center gap-2">
             <input
                 type="number"
                 placeholder={unit === 'metric' ? 'Height (cm)' : 'Height (inches)'}
