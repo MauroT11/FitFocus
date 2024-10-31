@@ -6,10 +6,10 @@ import ExerciseInfo from "@/components/workouts/ExerciseInfo"
 
 export default function page({params}) {
 
-    const [workout, setWorkout] = React.useState([])
-    const [instructions, setInstructions] = React.useState([])
+    const [workout, setWorkout] = useState([])
+    const [instructions, setInstructions] = useState([])
 
-    React.useEffect(() => {
+    useEffect(() => {
 
         const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
           const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_KEY;
@@ -53,12 +53,12 @@ export default function page({params}) {
 
     return (
         <div>
-            <div className="min-h-[20rem] relative bg-cover bg-center min-w-full items-center flex flex-col  justify-center text-white " style={{ backgroundImage: "url('/images/core.jpg')" }}>
-                <h1 className="text-8xl font-bold tracking-wider text-shadow-header">{workout.name}</h1>
+            <div className="min-h-[10rem] lg:min-h-[20rem] relative bg-cover bg-center min-w-full items-center flex flex-col  justify-center text-white " style={{ backgroundImage: "url('/images/core.jpg')" }}>
+                <h1 className="text-4xl lg:text-8xl font-bold tracking-wider text-shadow-header">{workout.name}</h1>
             </div>
-            <div className="flex flex-col gap-8 items-center py-8">
+            <div className="flex flex-col text-center gap-8 items-center py-8">
                 <h1 className="text-lg">{workout.description}</h1>
-                <ExerciseInfo instructions={instructions} />
+                <ExerciseInfo image={workout.image_url} instructions={instructions} />
             </div>
         </div>
     )

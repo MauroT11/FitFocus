@@ -3,16 +3,13 @@ import Image from "next/image";
 export default function Footer() {
     
     return (
-        <footer className="footer footer-center bg-secondary text-primary-content p-10">
-            <aside>
-                <img src={"/images/logo.png"} className="w-40" alt="Logo" />
-                <p className="font-bold">
-                FitFocus Ltd.
-                <br />
-                Providing reliable fitness insights since 2020
-                </p>
-                <p>Copyright © {new Date().getFullYear()} - All right reserved</p>
-            </aside>
+        <footer className="footer footer-center bg-primary text-white p-10">
+            <nav className="grid lg:grid-flow-col text-lg gap-4">
+                <a className="link link-hover">About us</a>
+                <a className="link link-hover">Contact</a>
+                <a className="link link-hover">Jobs</a>
+                <a className="link link-hover">Press kit</a>
+            </nav>
             <nav>
                 <div className="grid grid-flow-col gap-4">
                 <a>
@@ -50,6 +47,9 @@ export default function Footer() {
                 </a>
                 </div>
             </nav>
+            <aside>
+                <p>Copyright © {new Date().getFullYear()} - All right reserved by FitFocus Ltd</p>
+            </aside>
         </footer>
     )
 }

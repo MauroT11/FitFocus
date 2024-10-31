@@ -6,11 +6,11 @@ import Cards from "@/components/workouts/Cards"
 
 export default function page() {
 
-    const [workouts, setWorkouts] = React.useState([])
+    const [workouts, setWorkouts] = useState([])
 
     const muscle = "arms";
 
-    React.useEffect(() => {
+    useEffect(() => {
 
         const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
           const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_KEY;
@@ -37,16 +37,16 @@ export default function page() {
 
     return(
         <div>
-            <div className="min-h-[20rem] relative bg-cover bg-center min-w-full items-center flex flex-col  justify-center text-white " style={{ backgroundImage: "url('/images/biceps.jpg')" }}>
-                <h1 className="text-8xl font-bold tracking-wider text-shadow-header">Arm Workouts</h1>
+            <div className="min-h-[10rem] lg:min-h-[20rem] relative bg-cover bg-center min-w-full items-center flex flex-col  justify-center text-white " style={{ backgroundImage: "url('/images/biceps.jpg')" }}>
+                <h1 className="text-4xl lg:text-8xl font-bold tracking-wider text-shadow-header">Arm Workouts</h1>
             </div>
-            <div className="flex flex-col py-4 items-center text-center ">
+            <div className="flex flex-col gap-4 lg:px-0 py-4 items-center text-center ">
                 <h2 className="text-2xl font-bold">Why train your arm muscles?</h2>
-                <p className="max-w-[70rem] text-lg">Strong arms improve overall upper body strength, helping with everyday tasks like lifting and carrying. They stabilize joints, reducing the risk of injury. Plus, working out arms can boost your performance in other exercises like bench presses and pull-ups.</p>
+                <p className="max-w-[70rem] lg:text-lg">Strong arms improve overall upper body strength, helping with everyday tasks like lifting and carrying. They stabilize joints, reducing the risk of injury. Plus, working out arms can boost your performance in other exercises like bench presses and pull-ups.</p>
             </div>
             <div className="flex flex-col gap-8 items-center py-8">
                 <div className="flex flex-col">
-                    <div className="max-w-[100%] px-12">
+                    <div className="lg:max-w-[100%] px-8">
                         {workouts.length > 0 ? (
                             <Cards workouts={workouts} muscle={muscle} />
                         ) : (

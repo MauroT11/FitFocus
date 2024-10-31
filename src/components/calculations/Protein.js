@@ -38,7 +38,7 @@ const ProteinCalculator = () => {
     <div className="flex flex-col gap-4 items-center border-4 rounded-xl px-8 py-4">
         <label className="text-2xl">
             <select
-            className="select select-bordered text-2xl w-full max-w-xs"
+            className="select select-bordered border-2 text-secondary text-lg lg:text-2xl w-full max-w-xs"
             value={unit}
             onChange={(e) => setUnit(e.target.value)}
             >
@@ -57,20 +57,20 @@ const ProteinCalculator = () => {
         <option value="female">Female</option>
       </select>
       </label>
-      <label className="input max-w-[300px] input-bordered py-4 text-secondary flex border-2 items-center gap-2">
+      <label className="input max-w-[100px] lg:max-w-[300px] input-bordered py-4 text-secondary flex border-2 items-center gap-2">
       <input
         type="number"
-        placeholder="Enter your age"
+        placeholder="Age"
         value={age}
         onChange={(e) => setAge(e.target.value)}
       />
       </label>
       </div>
-      <div className="flex gap-4">
+      <div className="flex flex-col lg:flex-row gap-4">
       <label className="input max-w-[300px] input-bordered py-4 text-secondary flex border-2 items-center gap-2">
       <input
         type="number"
-        placeholder={unit === 'metric' ? 'Enter your weight (kg)' : 'Enter your weight (lbs)'}
+        placeholder={unit === 'metric' ? 'Weight (kg)' : 'Weight (lbs)'}
         value={weight}
         onChange={(e) => setWeight(e.target.value)}
       />
@@ -78,7 +78,7 @@ const ProteinCalculator = () => {
       <label className="input max-w-[300px] input-bordered py-4 text-secondary flex border-2 items-center gap-2">
       <input
         type="number"
-        placeholder={unit === 'metric' ? 'Enter your height (cm)' : 'Enter your height (inches)'}
+        placeholder={unit === 'metric' ? 'Height (cm)' : 'Height (inches)'}
         value={height}
         onChange={(e) => setHeight(e.target.value)}
       />

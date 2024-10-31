@@ -1,23 +1,49 @@
-
+import { motion } from "framer-motion";
 
 export default function Cards({workouts, muscle}) {
 
+    const container = {
+        hidden: { opacity: 1, scale: 0 },
+        visible: {
+          opacity: 1,
+          scale: 1,
+          transition: {
+            delayChildren: 0.3,
+            staggerChildren: 0.2
+          }
+        }
+      };
+      
+      const item = {
+        hidden: { y: 20, opacity: 0 },
+        visible: {
+          y: 0,
+          opacity: 1
+        }
+      };
+
     return (
-        <div className="grid grid-cols-3 gap-8">
+        <motion.ul className="grid lg:grid-cols-3 gap-8 container" variants={container} initial="hidden" animate="visible">
             {workouts.map((workout) => (
-                    <div className="card card-side bg-base-200 shadow-xl" key={workout.id}>
-                        <figure>
+                    <motion.li className="card lg:card-side max-w-[550px] bg-base-200 shadow-xl item items-center" key={workout.id} variants={item}>
+                        <figure className="max-w-[300px]">
+                          {workout.image_url ? (
                             <img
-                            src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
-                            alt="Movie" />
+                              src={workout.image_url}
+                              alt="Exercise Image"
+                            />
+                          ) : (
+                            <p className="py-4 px-2 lg:py-8 lg:px-2">IMAGE NOT AVAILABLE</p>
+                          )}
+                            
                         </figure>
-                        <div className="card-body items-center text-center">
-                            <h2 className="card-title text-2xl">{workout.name}</h2>
-                            <p className="max-w-[10rem] text-md">{workout.description}</p>
-                            <a className="btn btn-secondary text-2xl text-white" href={`/workouts/${muscle}/${workout.id}`}>More info</a>
+                        <div className="card-body lg:p-4 items-center text-center">
+                            <h2 className="card-title lg:text-2xl">{workout.name}</h2>
+                            <p className="max-w-[15rem] text-sm lg:text-md">{workout.description}</p>
+                            <a className="btn lg:p-2 btn-secondary lg:text-lg text-white" href={`/workouts/${muscle}/${workout.id}`}>More info</a>
                         </div>
-                    </div>
+                    </motion.li>
             ))}
-        </div>
+        </motion.ul>
     )
 }

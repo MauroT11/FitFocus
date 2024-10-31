@@ -3,7 +3,7 @@
 export default function Header() {
     
     return (
-        <div className="navbar bg-black">
+        <div className="navbar bg-primary">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn bg-white btn-ghost lg:hidden">
@@ -24,22 +24,22 @@ export default function Header() {
                         tabIndex={0}
                         className="menu menu-sm dropdown-content bg-base-100 text-3xl rounded-box z-[1] mt-3 w-52 p-2 shadow">
                         <li>
-                        <a>Calculators</a>
+                        <a className="font-bold tracking-widest">Calculators</a>
                         <ul className="p-2">
-                            <li><a href="/calculators/bmi">BMI</a></li>
-                            <li><a href="/calculators/protein">Protein</a></li>
-                            <li><a href="/calculators/calorie">Daily Calorie</a></li>
+                            <li><a className="tracking-wider" href="/calculators/bmi">BMI</a></li>
+                            <li><a className="tracking-wider" href="/calculators/protein">Protein</a></li>
+                            <li><a className="tracking-wider" href="/calculators/calorie">Daily Calorie</a></li>
                         </ul>
                         </li>
                         <li>
-                        <a>Workouts</a>
+                        <a className="font-bold tracking-widest">Workouts</a>
                         <ul className="p-2">
-                            <li><a href="/workouts/arms">Arms</a></li>
-                            <li><a href="/workouts/back">Back</a></li>
-                            <li><a href="/workouts/chest">Chest</a></li>
-                            <li><a href="/workouts/core">Core</a></li>
-                            <li><a href="/workouts/legs">Legs</a></li>
-                            <li><a href="/workouts/shoulders">Shoulders</a></li>
+                            <li><a className="tracking-wider" href="/workouts/arms">Arms</a></li>
+                            <li><a className="tracking-wider" href="/workouts/back">Back</a></li>
+                            <li><a className="tracking-wider" href="/workouts/chest">Chest</a></li>
+                            <li><a className="tracking-wider" href="/workouts/core">Core</a></li>
+                            <li><a className="tracking-wider" href="/workouts/legs">Legs</a></li>
+                            <li><a className="tracking-wider" href="/workouts/shoulders">Shoulders</a></li>
                         </ul>
                         </li>
                     </ul>

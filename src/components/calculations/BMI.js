@@ -29,14 +29,14 @@ const BMICalculator = () => {
   return (
     <div className="flex flex-col gap-4">
         <div className="flex flex-col">
-      <label className="text-2xl">
-        <select className="select select-bordered text-2xl w-full max-w-xs" value={unit} onChange={(e) => setUnit(e.target.value)}>
-          <option value="metric">Metric (kg/cm)</option>
-          <option value="imperial">Imperial (lbs/inches)</option>
-        </select>
-      </label>
-      </div>
-      <div className="flex gap-4">
+          <label className="text-2xl">
+            <select className="select select-bordered text-lg text-secondary lg:text-2xl border-2 w-full max-w-xs" value={unit} onChange={(e) => setUnit(e.target.value)}>
+              <option value="metric">Metric (kg/cm)</option>
+              <option value="imperial">Imperial (lbs/inches)</option>
+            </select>
+          </label>
+        </div>
+      <div className="flex flex-col items-center lg:flex-row gap-4">
         <label className="input max-w-[225px] input-bordered py-8 text-secondary flex border-2 items-center gap-2">
             <input
                 type="number"
@@ -57,7 +57,7 @@ const BMICalculator = () => {
         </label>
       </div>
       <button className="btn btn-secondary text-2xl" onClick={calculateBMI}>Calculate BMI</button>
-      {bmi && <h3 className="text-3xl">Your BMI is: <span>{bmi}</span></h3>}
+      {bmi && <h3 className="text-3xl">Your BMI is: <br /><span className="font-bold">{bmi}</span></h3>}
     </div>
   );
 };

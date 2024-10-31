@@ -2,15 +2,15 @@
 
 import React, { useState, useEffect } from "react";
 import { createClient } from "@supabase/supabase-js";
-import Cards from "@/components/workouts/Cards"
+import Cards from "@/components/workouts/cards"
 
 export default function page() {
 
     const muscle = "chest";
 
-    const [workouts, setWorkouts] = React.useState([])
+    const [workouts, setWorkouts] = useState([])
 
-    React.useEffect(() => {
+    useEffect(() => {
 
         const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
           const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_KEY;
@@ -37,12 +37,12 @@ export default function page() {
 
     return(
         <div>
-            <div className="min-h-[20rem] relative bg-cover bg-center min-w-full items-center flex flex-col  justify-center text-white " style={{ backgroundImage: "url('/images/chest banner.jpg')" }}>
-                <h1 className="text-8xl font-bold tracking-wider text-shadow-header">Chest Workouts</h1>
+            <div className="min-h-[10rem] lg:min-h-[20rem] relative bg-cover bg-center min-w-full items-center flex flex-col  justify-center text-white " style={{ backgroundImage: "url('/images/chest banner.jpg')" }}>
+                <h1 className="text-4xl lg:text-8xl font-bold tracking-wider text-shadow-header">Chest Workouts</h1>
             </div>
-            <div className="flex flex-col py-4 items-center text-center ">
+            <div className="flex flex-col gap-4 lg:px-0 py-4 items-center text-center ">
                 <h2 className="text-2xl font-bold">Why train your chest muscles?</h2>
-                <p className="max-w-[70rem] text-lg">Training chest muscles is about more than just aesthetics. Strong chest muscles improve overall upper body strength, crucial for pushing movements and functional tasks. They stabilize the shoulder joint, reducing injury risk, and contribute to better posture.</p>
+                <p className="max-w-[70rem] lg:text-lg">Training chest muscles is about more than just aesthetics. Strong chest muscles improve overall upper body strength, crucial for pushing movements and functional tasks. They stabilize the shoulder joint, reducing injury risk, and contribute to better posture.</p>
             </div>
             <div className="flex flex-col gap-8 items-center py-8">
                 <div className="flex flex-col">
