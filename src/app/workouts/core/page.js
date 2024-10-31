@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { createClient } from "@supabase/supabase-js";
-import Cards from "@/components/workouts/cards"
+import Cards from "@/components/workouts/Cardss"
 
 export default function page() {
 
