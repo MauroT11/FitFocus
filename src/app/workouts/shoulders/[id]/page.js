@@ -8,7 +8,6 @@ export default function Page({params}) {
 
     const [workout, setWorkout] = useState([])
     const [instructions, setInstructions] = useState([])
-    // const [exercise_equipment, setExercise_equipment] = useState([])
     const [equipment, setEquipment] = useState([])
 
     useEffect(() => {
@@ -45,7 +44,7 @@ export default function Page({params}) {
             }
         }
 
-        const fetchExerEquipment = async () => {
+        const fetchEquipment = async () => {
           const { data: exerEquip, error } = await supabase
               .from("exercise_equipment")
               .select("equipment_id(name)")
@@ -60,7 +59,7 @@ export default function Page({params}) {
 
         fetchWorkout();
         fetchInstructions();
-        fetchExerEquipment();
+        fetchEquipment();
       }, []);
 
     return (

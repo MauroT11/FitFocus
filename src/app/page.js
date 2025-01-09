@@ -74,7 +74,7 @@ export default function Home() {
       </section> 
       <section className="flex flex-col items-center gap-8 bg-base-300 py-32 text-center">
         <h1 className="text-4xl px-16 lg:px-0 lg:text-5xl">Start your fitness journey today with <br /><b>FitFocus</b>!</h1>
-        <a className="btn glass text-2xl lg:text-4xl bg-orange-500 hover:bg-red-500" href="/">Sign Up!</a>
+        <a className="btn glass text-2xl lg:text-4xl bg-accent hover:bg-red-500" href="/">Sign Up!</a>
         
       </section>
       

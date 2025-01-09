@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@clerk/nextjs": "^6.4.1",
+    "@clerk/themes": "^2.1.46",
     "@supabase/supabase-js": "^2.45.6",
     "framer-motion": "^11.11.10",
     "next": "14.2.11",

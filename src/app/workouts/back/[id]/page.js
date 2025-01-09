@@ -8,6 +8,7 @@ export default function Page({params}) {
 
     const [workout, setWorkout] = useState([])
     const [instructions, setInstructions] = useState([])
+    const [equipment, setEquipment] = useState([])
 
     useEffect(() => {
 
@@ -46,9 +47,22 @@ export default function Page({params}) {
                 setInstructions(instructions);
             }
         }
+        const fetchEquipment = async () => {
+          const { data: exerEquip, error } = await supabase
+              .from("exercise_equipment")
+              .select("equipment_id(name)")
+              .eq("exercise_id", params.id)
+          if (error) {
+              console.error("Error fetching workouts:", error);
+          } else {
+              console.log(exerEquip)
+              setEquipment(exerEquip)
+          }
+        }
     
         fetchWorkout();
         fetchInstructions();
+        fetchEquipment();
       }, []);
 
     return (
@@ -59,6 +73,12 @@ export default function Page({params}) {
             <div className="flex flex-col text-center gap-8 items-center py-8">
                 <h1 className="text-lg">{workout.description}</h1>
                 <ExerciseInfo image={workout.image_url} instructions={instructions} />
+                <h2 className="text-lg lg:text-2xl">Equipment Required:</h2>
+              <div>
+                {equipment.map((equip) => (
+                  <p key={equip.equipment_id.name}>{equip.equipment_id.name}</p>
+                ))}
+              </div>
             </div>
         </div>
     )

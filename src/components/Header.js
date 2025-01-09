@@ -1,6 +1,11 @@
 "use client"
+import { FaUser } from "react-icons/fa";
+import {UserButton } from '@clerk/nextjs'
+import { useUser } from '@clerk/clerk-react'
 
 export default function Header() {
+
+    const { isLoaded, user } = useUser()
     
     return (
         <div className="navbar bg-primary">
@@ -71,10 +76,34 @@ export default function Header() {
                     </ul>
                     </details>
                 </li>
+                {user ? (
+                        <li><a className="px-1 text-base-100 text-3xl" href="/fittracking">FitTracking</a></li>
+                ) : (
+                    null
+                )}
                 </ul>
             </div>
-            <div className="navbar-end ">
-                {/* <a className="btn text-3xl">Button</a> */}
+            <div className="navbar-end text-white">
+            {user ? (
+                <UserButton 
+                    className="text-5xl"
+                    showName={true}
+                    userProfileUrl={`/account/${user.username}`}
+                    afterSignOutUrl="/"
+                    appearance= {{
+                        variables: {
+                            colorText: '#f97316',
+                            colorPrimary: 'white',
+                            fontSize: '1.5rem',
+                            spacingUnit: '1.5rem',
+                            fontWeight: 300,
+                        },
+                    }}
+                />
+            ) : (
+                <a className="btn bg-accent hover:bg-red-500 text-white glass text-3xl" href="/signin"><FaUser />Sign In</a>
+            )}
+                
             </div>
         </div>
     )
