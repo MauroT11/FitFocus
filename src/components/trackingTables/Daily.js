@@ -1,7 +1,11 @@
 import React from 'react';
 
-export default function TrackingTable() {
+export default function DailyTracking() {
     return (
+        <div className="border-2 rounded-lg">
+        <div className="flex justify-center">
+                        <h2 className="text-2xl tracking-widest font-bold">Daily Calorie</h2>
+                    </div>
         <div className="overflow-x-auto rounded-lg">
             <table className="table">
                         {/* head */}
@@ -28,6 +32,7 @@ export default function TrackingTable() {
                         {/* row 3 */}
                         </tbody>
                     </table>
-        </div>            
+        </div>      
+      </div>        
     );
 }

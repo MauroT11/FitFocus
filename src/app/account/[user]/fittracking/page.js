@@ -1,17 +1,56 @@
 "use client"
 
 import React, { useEffect, useState } from 'react';
-import TrackingTable from '@/components/TrackingTable';
+import BMITracking from '@/components/trackingTables/BMI';
+import DailyTracking from '@/components/trackingTables/Daily';
+import ProteinTracking from '@/components/trackingTables/Protein';
+import { createClient } from "@supabase/supabase-js";
+import { useUser } from '@clerk/clerk-react'
 
-export default function Page() {
+export default function Page({params}) {
 
-    // useEffect(() => {
-    //     const getData = async () => {
-    //         const result = await fetchData();
-    //         setData(result);
-    //     };
-    //     getData();
-    // }, []);
+    const [BMI, setBMI] = useState([])
+    const [Protein, setProtein] = useState([])
+    const [Daily, setDaily] = useState([])
+
+    // console.log(params)
+
+    useEffect(() => {
+    
+        const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+        const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_KEY;
+        const supabase = createClient(supabaseUrl, supabaseAnonKey);
+            
+        const fetchBMI = async () => {
+        
+            const { data: bmi, error } = await supabase
+                .from("bmitracking")
+                .select("*")
+                .eq("username", params.user)
+        
+              if (error) {
+                console.error("Error fetching workouts:", error);
+              } else {
+                setBMI(bmi);
+              }
+        };
+
+        // const fetchProtein = async () => {
+        
+        //     const { data: protein, error } = await supabase
+        //         .from("bmitracking")
+        //         .select("*")
+        //         .eq("username", user.username)
+        
+        //       if (error) {
+        //         console.error("Error fetching workouts:", error);
+        //       } else {
+        //         setProtein(protein);
+        //       }
+        // };
+        
+        fetchBMI();
+    }, []);
 
     return (
         <div>
@@ -44,24 +83,10 @@ export default function Page() {
                 </div>
             </div>
             <div className="grid grid-cols-3 px-8 py-8 gap-4">
-                <div className="border-2 rounded-lg">
-                    <div className="flex justify-center">
-                        <h2 className="text-2xl tracking-widest font-bold">BMI</h2>
-                    </div>
-                    <TrackingTable />
-                </div>
-                <div className="border-2 rounded-lg">
-                    <div className="flex justify-center">
-                        <h2 className="text-2xl tracking-widest font-bold">BMI</h2>
-                    </div>
-                    <TrackingTable />
-                </div>
-                <div className="border-2 rounded-lg">
-                    <div className="flex justify-center">
-                        <h2 className="text-2xl tracking-widest font-bold">BMI</h2>
-                    </div>
-                    <TrackingTable />
-                </div>
+                    <BMITracking BMI={BMI}/>
+     
+                    <DailyTracking />
+                    <ProteinTracking />
             </div>
         </div>
     );

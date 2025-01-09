@@ -77,7 +77,7 @@ export default function Header() {
                     </details>
                 </li>
                 {user ? (
-                        <li><a className="px-1 text-base-100 text-3xl" href="/fittracking">FitTracking</a></li>
+                        <li><a className="px-1 text-base-100 text-3xl" href={`/account/${user.username}/fittracking`}>FitTracking</a></li>
                 ) : (
                     null
                 )}
