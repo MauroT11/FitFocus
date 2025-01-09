@@ -1,6 +1,12 @@
 import React from 'react';
 
-export default function DailyTracking() {
+export default function DailyTracking({Daily}) {
+
+    const formatDate = (timestamp) => {
+        const date = new Date(timestamp);
+        return date.toISOString().split('T')[0]; // Returns 'YYYY-MM-DD'
+    };
+
     return (
         <div className="border-2 rounded-lg">
         <div className="flex justify-center">
@@ -17,19 +23,13 @@ export default function DailyTracking() {
                         </tr>
                         </thead>
                         <tbody>
-                        {/* row 1 */}
-                        <tr>
-                            <th>1</th>
-                            <td>Cy Ganderton</td>
-                            <td>Quality Control Specialist</td>
-                        </tr>
-                        {/* row 2 */}
-                        <tr>
-                            <th>2</th>
-                            <td>Hart Hagerty</td>
-                            <td>Desktop Support Technician</td>
-                        </tr>
-                        {/* row 3 */}
+                        {Daily.map((daily) => (
+                            <tr key={daily.id}>
+                                <td>{formatDate(daily.timestamp)}</td>
+                                <td>{daily.calories}</td>
+                                <td>{daily.activityLevel}</td>
+                                </tr>
+                        ))}
                         </tbody>
                     </table>
         </div>      

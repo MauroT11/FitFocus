@@ -105,7 +105,7 @@ const BMICalculator = () => {
           </h3>
           <br />
           {user &&
-            <button className="btn btn-primary text-2xl" onClick={uploadBMICalculation}>Save BMI Calculation</button>
+            <button className="btn btn-accent text-white text-2xl" onClick={uploadBMICalculation}>Save BMI Calculation</button>
           }
         </div>}
     </div>

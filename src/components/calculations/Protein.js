@@ -3,6 +3,8 @@
 "use client"
 
 import React, { useState } from 'react';
+import { createClient } from "@supabase/supabase-js";
+import { useUser } from '@clerk/clerk-react'
 
 const ProteinCalculator = () => {
   const [weight, setWeight] = useState('');
@@ -12,6 +14,12 @@ const ProteinCalculator = () => {
   const [activityLevel, setActivityLevel] = useState('');
   const [unit, setUnit] = useState('metric');
   const [proteinIntake, setProteinIntake] = useState('');
+
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_KEY;
+  const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+  const { isLoaded, user } = useUser()
 
   const calculateProtein = () => {
     const activityMultiplier = {
@@ -32,6 +40,26 @@ const ProteinCalculator = () => {
     
     const protein = weightInKg * activityMultiplier[activityLevel] * genderMultiplier * ageAdjustment;
     setProteinIntake(protein.toFixed(2));
+  };
+
+  const uploadProteinIntake = async () => {
+    const timestamp = new Date().toISOString();
+    const { data, error } = await supabase
+      .from('proteintracking')
+      .insert([
+        { 
+          proteinIntake, 
+          activityLevel, 
+          username: user.username, 
+          timestamp 
+        }
+      ]);
+
+    if (error) {
+      console.error('Error uploading protein intake:', error);
+    } else {
+      console.log('Protein intake uploaded successfully:', data);
+    }
   };
 
   return (
@@ -100,7 +128,15 @@ const ProteinCalculator = () => {
       </select>
       </label>
       <button className="btn btn-secondary text-2xl" onClick={calculateProtein}>Calculate</button>
-      {proteinIntake && <p className="text-2xl">Your recommended daily protein intake is: <br /> <span className="font-bold">{proteinIntake}</span> grams.</p>}
+      {proteinIntake && 
+      <div>
+      <p className="text-2xl">Recommended daily protein intake: 
+      <br /> 
+      <span className="font-bold">{proteinIntake}</span> grams.</p>
+      {user &&
+            <button className="btn btn-accent text-white text-2xl" onClick={uploadProteinIntake}>Save BMI Calculation</button>
+          }
+      </div>}
     </div>
   );
 };

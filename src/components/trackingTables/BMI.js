@@ -5,7 +5,7 @@ export default function BMITracking({BMI}) {
     const formatDate = (timestamp) => {
         const date = new Date(timestamp);
         return date.toISOString().split('T')[0]; // Returns 'YYYY-MM-DD'
-      };
+    };
 
     return (
         <div className="border-2 rounded-lg">

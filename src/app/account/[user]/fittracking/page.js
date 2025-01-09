@@ -5,7 +5,6 @@ import BMITracking from '@/components/trackingTables/BMI';
 import DailyTracking from '@/components/trackingTables/Daily';
 import ProteinTracking from '@/components/trackingTables/Protein';
 import { createClient } from "@supabase/supabase-js";
-import { useUser } from '@clerk/clerk-react'
 
 export default function Page({params}) {
 
@@ -13,7 +12,6 @@ export default function Page({params}) {
     const [Protein, setProtein] = useState([])
     const [Daily, setDaily] = useState([])
 
-    // console.log(params)
 
     useEffect(() => {
     
@@ -35,21 +33,37 @@ export default function Page({params}) {
               }
         };
 
-        // const fetchProtein = async () => {
+        const fetchProtein = async () => {
         
-        //     const { data: protein, error } = await supabase
-        //         .from("bmitracking")
-        //         .select("*")
-        //         .eq("username", user.username)
+            const { data: protein, error } = await supabase
+                .from("proteintracking")
+                .select("*")
+                .eq("username", params.user)
         
-        //       if (error) {
-        //         console.error("Error fetching workouts:", error);
-        //       } else {
-        //         setProtein(protein);
-        //       }
-        // };
+              if (error) {
+                console.error("Error fetching workouts:", error);
+              } else {
+                setProtein(protein);
+              }
+        };
+
+        const fetchDaily = async () => {
+        
+            const { data: daily, error } = await supabase
+                .from("dailyIntake")
+                .select("*")
+                .eq("username", params.user)
+        
+              if (error) {
+                console.error("Error fetching workouts:", error);
+              } else {
+                setDaily(daily);
+              }
+        };
         
         fetchBMI();
+        fetchProtein();
+        fetchDaily();
     }, []);
 
     return (
@@ -85,8 +99,8 @@ export default function Page({params}) {
             <div className="grid grid-cols-3 px-8 py-8 gap-4">
                     <BMITracking BMI={BMI}/>
      
-                    <DailyTracking />
-                    <ProteinTracking />
+                    <DailyTracking Daily={Daily} />
+                    <ProteinTracking Protein={Protein} />
             </div>
         </div>
     );
