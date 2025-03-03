@@ -10,10 +10,19 @@ export default function Home() {
   return (
     <div className="flex flex-col">
     
-      <div className="min-h-[25rem] lg:min-h-[35rem] relative bg-cover bg-center min-w-full items-center flex flex-col justify-center text-white" style={{ backgroundImage: "url('/images/homeBanner.jpg')" }}>
-          <h1 className="text-7xl font-bold tracking-wider text-shadow-header lg:text-9xl">FitFocus</h1>
-          <h3 className="text-3xl text-shadow">You Fitness, Your Focus.</h3>
-      </div>
+    <div className="min-h-[25rem] lg:min-h-[35rem] relative min-w-full items-center flex flex-col justify-center text-white">
+      <Image
+        src="/images/homeBanner.jpg"
+        fill
+        priority
+        sizes="100vw"
+        alt="FitFocus Banner"
+        className="object-cover z-[-1]"
+        quality={80}
+      />
+      <h1 className="text-7xl font-bold tracking-wider text-shadow-header lg:text-9xl z-10">FitFocus</h1>
+      <h3 className="text-3xl text-shadow z-10">You Fitness, Your Focus.</h3>
+    </div>
 
       <section id="whatIs" className="flex flex-col items-center gap-20 py-24">
         <div className="flex flex-col items-center gap-4"> 
