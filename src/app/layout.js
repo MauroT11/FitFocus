@@ -3,6 +3,7 @@ import "./globals.css";
 import Head from 'next/head'
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { AuthProvider } from '@/context/AuthContext'
 
 const k2d = K2D({ subsets: ['latin'], weight: ['300', '400', '500'], style: ['normal', 'italic'] })
 
@@ -20,11 +21,13 @@ export default function RootLayout({ children }) {
       <Head>
         <link rel="icon" href="/public/favicon1.png" sizes="any" />
       </Head>
-      <body className={k2d.className}>
-        <Header />
-        {children}
-        <Footer />
-      </body>
+      <AuthProvider>
+        <body className={k2d.className}>
+          <Header />
+          {children}
+          <Footer />
+        </body>
+      </AuthProvider>
     </html>
   );
 }

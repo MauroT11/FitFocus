@@ -1,6 +1,11 @@
 "use client"
 
+import Link from 'next/link'
+import { useAuth } from '../context/AuthContext'
+
 export default function Header() {
+
+    const { user } = useAuth()
     
     return (
         <div className="navbar bg-primary">
@@ -73,8 +78,19 @@ export default function Header() {
                 </li>
                 </ul>
             </div>
-            <div className="navbar-end ">
-                {/* <a className="btn text-3xl">Button</a> */}
+            <div className="navbar-end">
+                {user ? (
+                <button 
+                    className="btn btn-ghost"
+                    onClick={() => supabase.auth.signOut()}
+                >
+                    Sign Out
+                </button>
+                ) : (
+                <Link href="/Sign-in" className="btn btn-primary">
+                    Sign In
+                </Link>
+                )}
             </div>
         </div>
     )
