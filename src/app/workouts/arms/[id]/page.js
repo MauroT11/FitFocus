@@ -44,7 +44,7 @@ export default function Page({params}) {
     
         fetchWorkout();
         fetchInstructions();
-      }, []);
+      }, [params.id]);
 
     return (
         <div>
