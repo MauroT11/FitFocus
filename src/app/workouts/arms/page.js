@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { createClient } from "@supabase/supabase-js";
 import Cards from "@/components/workouts/Cards"
@@ -37,8 +38,17 @@ export default function Page() {
 
     return(
         <div>
-            <div className="min-h-[10rem] lg:min-h-[20rem] relative bg-cover bg-center min-w-full items-center flex flex-col  justify-center text-white " style={{ backgroundImage: "url('/images/biceps.jpg')" }}>
-                <h1 className="text-4xl lg:text-8xl font-bold tracking-wider text-shadow-header">Arm Workouts</h1>
+            <div className="min-h-[10rem] lg:min-h-[20rem] relative min-w-full items-center flex flex-col justify-center text-white">
+                <Image
+                    src="/images/biceps.jpg"
+                    fill
+                    priority
+                    sizes="100vw"
+                    alt="Arm Workouts Banner"
+                    className="object-cover z-[-1]"
+                    quality={80}
+                />
+                <h1 className="text-4xl lg:text-8xl font-bold tracking-wider text-shadow-header z-10">Arm Workouts</h1>
             </div>
             <div className="flex flex-col gap-4 lg:px-0 py-4 items-center text-center ">
                 <h2 className="text-2xl font-bold">Why train your arm muscles?</h2>
