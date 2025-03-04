@@ -9,7 +9,7 @@ import BMIChart from '@/components/charts/BMIChart'
 import ProteinChart from '@/components/charts/ProteinChart'
 import CalorieChart from '@/components/charts/CalorieChart'
 
-export default function page() {
+export default function Dashboard() {
   
   const { user } = useAuth()
   const [bmiData, setBmiData] = useState([])
@@ -18,6 +18,8 @@ export default function page() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
+    if (!user) return
+
     const fetchUserData = async () => {
       try {
         // Fetch latest BMI calculation
@@ -63,12 +65,10 @@ export default function page() {
       }
     }
 
-    if (user) {
-      fetchUserData()
-    }
+    fetchUserData()
   }, [user])
 
-//   console.log(user)
+  if (!user) return null
 
   return (
     <ProtectedComponent>
