@@ -20,7 +20,7 @@ export default function Header() {
     }
     
     return (
-        <div className="navbar bg-primary shadow-md sticky top-0 z-50">
+        <div className="navbar bg-gradient-to-r from-primary via-secondary to-primary px-8 shadow-md sticky top-0 z-50">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden hover:bg-primary-focus">
@@ -89,7 +89,7 @@ export default function Header() {
                 <ul className="menu menu-horizontal px-1 text-base-100 text-xl">
                 <li>
                     <details>
-                        <summary className="hover:bg-secondary">Calculators</summary>
+                        <summary className="hover:bg-primary">Calculators</summary>
                         <ul className="p-2 bg-white rounded-box shadow-lg z-20 absolute text-lg text-primary min-w-max">
                             <li><a className="hover:bg-primary hover:text-base-100" href="/calculators/bmi">BMI</a></li>
                             <li><a className="hover:bg-primary hover:text-base-100" href="/calculators/protein">Protein</a></li>
@@ -99,7 +99,7 @@ export default function Header() {
                 </li>
                 <li>
                     <details>
-                        <summary className="hover:bg-secondary">Workouts</summary>
+                        <summary className="hover:bg-primary">Workouts</summary>
                         <ul className="p-2 bg-white rounded-box shadow-lg z-20 absolute text-lg text-primary min-w-max">
                             <li><a className="hover:bg-secondary hover:text-base-200" href="/workouts/arms">Arms</a></li>
                             <li><a className="hover:bg-secondary hover:text-base-200" href="/workouts/back">Back</a></li>
@@ -114,7 +114,7 @@ export default function Header() {
             </div>
             { user ? (
                 <div className="navbar-center hidden lg:flex">
-                    <a className="text-lg text-base-100 hover:bg-secondary duration-200 p-2 rounded-box min-w-max" href="/dashboard">Dashboard</a>
+                    <a className="text-lg text-base-100 hover:bg-primary duration-200 p-2 rounded-lg min-w-max" href="/dashboard">Dashboard</a>
                 </div>
             ) : (
                 null
@@ -123,13 +123,13 @@ export default function Header() {
             <div className="navbar-end hidden lg:flex">
                 {user ? (
                 <button 
-                    className="btn btn-secondary hover:btn-secondary-focus text-base-100 shadow-md transition-all duration-300"
+                    className="btn btn-secondary p-2 rounded-box min-w-max hover:btn-accent text-base-100 shadow-md transition-all duration-300"
                     onClick={handleSignOut}
                 >
                     Sign Out
                 </button>
                 ) : (
-                <Link href="/Sign-in" className="btn btn-accent text-base-100 shadow-md hover:scale-105 transition-all duration-300">
+                <Link href="/Sign-in" className=" text-base-100 shadow-md hover:scale-105 transition-all duration-300">
                     Sign In
                 </Link>
                 )}

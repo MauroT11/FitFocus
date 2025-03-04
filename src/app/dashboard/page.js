@@ -96,7 +96,7 @@ export default function page() {
                     ) : (
                       <p>No BMI data available</p>
                     )}
-                    <Link href="/calculators/bmi" className="btn btn-primary text-lg tracking-wider">
+                    <Link href="/calculators/bmi" className="btn btn-primary hover:bg-secondary text-lg tracking-wider">
                       Calculate BMI
                     </Link>
                   </div>
@@ -111,7 +111,7 @@ export default function page() {
                     ) : (
                       <p>No protein data available</p>
                     )}
-                    <Link href="/calculators/protein" className="btn btn-primary text-lg tracking-wider">
+                    <Link href="/calculators/protein" className="btn btn-primary hover:bg-secondary text-lg tracking-wider">
                       Calculate Protein
                     </Link>
                   </div>
@@ -126,7 +126,7 @@ export default function page() {
                     ) : (
                       <p>No calorie data available</p>
                     )}
-                    <Link href="/calculators/calorie" className="btn btn-primary text-lg tracking-wider">
+                    <Link href="/calculators/calorie" className="btn btn-primary hover:bg-secondary text-lg tracking-wider">
                       Calculate Calories
                     </Link>
                   </div>
