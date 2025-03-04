@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState, useEffect } from "react";
-import { createClient } from "@supabase/supabase-js";
+import { supabase } from "@/utils/supabase";
 import ExerciseInfo from "@/components/workouts/ExerciseInfo"
 
 export default function Page({params}) {
@@ -10,11 +10,6 @@ export default function Page({params}) {
     const [instructions, setInstructions] = useState([])
 
     useEffect(() => {
-
-        const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-          const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_KEY;
-    
-          const supabase = createClient(supabaseUrl, supabaseAnonKey);
         
         const fetchWorkout = async () => {
     
