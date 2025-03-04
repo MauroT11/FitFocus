@@ -6,12 +6,14 @@ import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 
 export default function SignUp() {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [confirmPassword, setConfirmPassword] = useState('')
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(null)
-  const router = useRouter()
+
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('')
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(null)
+    const router = useRouter()
 
   const handleSignUp = async (e) => {
     e.preventDefault()
@@ -25,18 +27,35 @@ export default function SignUp() {
       setLoading(true)
       setError(null)
 
+      // Sign up the user
       const { data, error } = await supabase.auth.signUp({
         email,
         password,
         options: {
-          emailRedirectTo: `${window.location.origin}/auth/callback`,
+            data: {
+                display_name: name // Add name to user metadata
+            },
+            emailRedirectTo: `${window.location.origin}/auth/callback`,
         },
       })
 
       if (error) throw error
 
+      // Create a profile entry in your database
+      const { error: profileError } = await supabase
+        .from('profiles')
+        .insert([
+          {
+            user_id: authData.user.id,
+            display_name: name,
+            email: email
+          }
+        ])
+
+      if (profileError) throw profileError
+
       // Successfully signed up
-      router.push('/signup-success')
+      router.push('/dashboard')
     } catch (error) {
       setError(error.message)
     } finally {
@@ -60,6 +79,20 @@ export default function SignUp() {
 
             <form onSubmit={handleSignUp} className="mt-8 space-y-6">
             <div className="rounded-md shadow-sm space-y-4">
+                <div>
+                    <label htmlFor="name" className="sr-only">
+                    Full Name
+                    </label>
+                    <input
+                    id="name"
+                    type="text"
+                    required
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className="input input-bordered w-full"
+                    placeholder="Full Name"
+                    />
+                </div>
                 <div>
                 <label htmlFor="email" className="sr-only">
                     Email address

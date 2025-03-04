@@ -20,9 +20,10 @@ export default function Dashboard() {
         const { data: bmiData, error: bmiError } = await supabase
           .from('bmitracking')
           .select('*')
-          .eq('username', user?.username)
+          .eq('user_id', user?.id)
           .order('timestamp', { ascending: false })
-          .limit(1)
+          console.log(bmiData)
+        //   .limit(1)
 
         if (bmiError) throw bmiError
         setBmiData(bmiData)
@@ -31,20 +32,22 @@ export default function Dashboard() {
         const { data: proteinData, error: proteinError } = await supabase
           .from('proteintracking')
           .select('*')
-          .eq('username', user?.username)
+          .eq('user_id', user?.id)
           .order('timestamp', { ascending: false })
-          .limit(1)
+          console.log(proteinData)
+        //   .limit(1)
 
         if (proteinError) throw proteinError
         setProteinData(proteinData)
 
         // Fetch latest calorie calculation
         const { data: calorieData, error: calorieError } = await supabase
-          .from('calorietracking')
+          .from('dailyIntake')
           .select('*')
-          .eq('username', user?.username)
+          .eq('user_id', user?.id)
           .order('timestamp', { ascending: false })
-          .limit(1)
+            console.log(calorieData)
+        //   .limit(1)
 
         if (calorieError) throw calorieError
         setCalorieData(calorieData)
@@ -61,11 +64,13 @@ export default function Dashboard() {
     }
   }, [user])
 
+//   console.log(user)
+
   return (
     <ProtectedComponent>
       <main className="flex-grow py-36 px-4">
-        <div className="max-w-7xl mx-auto">
-          <h1 className="text-4xl font-bold mb-8">Welcome, {user?.email}</h1>
+        <div className="max-w-7xl flex flex-col mx-auto">
+          <h1 className="text-4xl text-center font-bold mb-8">Welcome, {user?.user_metadata.display_name}</h1>
           
           {loading ? (
             <div className="flex justify-center">
@@ -93,7 +98,7 @@ export default function Dashboard() {
                 <div className="card-body">
                   <h2 className="card-title">Daily Protein Intake</h2>
                   {proteinData.length > 0 ? (
-                    <p className="text-2xl font-bold">{proteinData[0].protein}g</p>
+                    <p className="text-2xl font-bold">{proteinData[0].proteinIntake} g</p>
                   ) : (
                     <p>No protein data available</p>
                   )}

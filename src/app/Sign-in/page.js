@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { supabase } from '@/utils/supabase'
 import { useRouter } from 'next/navigation'
+import { useAuth } from '@/context/AuthContext'
 import Link from 'next/link'
 
 export default function SignIn() {

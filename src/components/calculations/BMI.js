@@ -1,8 +1,11 @@
 // CO-PILOT AI
 
 import { useState } from 'react';
+import { supabase } from '../../utils/supabase';
+import { useAuth } from '../../context/AuthContext';
 
 const BMICalculator = () => {
+  const { user } = useAuth()
   const [weight, setWeight] = useState('');
   const [height, setHeight] = useState('');
   const [unit, setUnit] = useState('metric');
@@ -24,6 +27,36 @@ const BMICalculator = () => {
       }
     }
     setBMI(calculatedBMI.toFixed(2));
+  };
+
+  const uploadBMICalculation = async () => {
+    const timestamp = new Date().toISOString();
+    // console.log('timestamp', timestamp);
+    const { data, error } = await supabase
+      .from('bmitracking')
+      .insert([
+        { timestamp, bmi, user_id : user.id, category: getBMICategory(bmi) }
+      ]);
+
+    if (error) {
+      console.error('Error uploading BMI calculation:', error);
+    } else {
+      console.log('BMI calculation uploaded successfully:', data);
+    }
+};
+
+  const getColorForBMI = (bmi) => {
+    if (bmi < 18.5) return 'text-blue-500'; // Underweight
+    if (bmi >= 18.5 && bmi < 24.9) return 'text-green-500'; // Normal weight
+    if (bmi >= 25 && bmi < 29.9) return 'text-yellow-500'; // Overweight
+    return 'text-red-500'; // Obesity
+  };
+
+  const getBMICategory = (bmi) => {
+    if (bmi < 18.5) return 'Underweight';
+    if (bmi >= 18.5 && bmi < 24.9) return 'Normal weight';
+    if (bmi >= 25 && bmi < 29.9) return 'Overweight';
+    return 'Obese';
   };
 
   return (
@@ -57,7 +90,19 @@ const BMICalculator = () => {
         </label>
       </div>
       <button className="btn btn-secondary text-2xl" onClick={calculateBMI}>Calculate BMI</button>
-      {bmi && <h3 className="text-3xl">Your BMI is: <br /><span className="font-bold">{bmi}</span></h3>}
+      {bmi &&
+        <div> 
+          <h3 className="text-3xl">Your BMI is: 
+          <br />
+          <span className={`text-4xl font-bold ${getColorForBMI(bmi)}`}>{bmi}</span>
+          <br />
+          <span className={`text-2xl font-bold ${getColorForBMI(bmi)}`}>{getBMICategory(bmi)}</span>
+          </h3>
+          <br />
+          {user &&
+            <button className="btn btn-accent text-white text-2xl" onClick={uploadBMICalculation}>Save BMI Calculation</button>
+          }
+        </div>}
     </div>
   );
 };
