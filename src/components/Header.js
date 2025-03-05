@@ -13,7 +13,7 @@ export default function Header() {
     const handleSignOut = async () => {
         try {
             await supabase.auth.signOut()
-            router.push('/Sign-in')
+            router.push('/')
         } catch (error) {
             console.error('Error signing out:', error)
         }
@@ -123,13 +123,13 @@ export default function Header() {
             <div className="navbar-end hidden lg:flex">
                 {user ? (
                 <button 
-                    className="btn btn-secondary p-2 rounded-box min-w-max hover:btn-accent text-base-100 shadow-md transition-all duration-300"
+                    className="btn btn-ghost text-4xl text-base-100 font-bold hover:bg-primary-focus"
                     onClick={handleSignOut}
                 >
                     Sign Out
                 </button>
                 ) : (
-                <Link href="/Sign-in" className=" text-base-100 shadow-md hover:scale-105 transition-all duration-300">
+                <Link href="/Sign-in" className="btn btn-ghost text-4xl text-base-100 font-bold hover:bg-primary-focus">
                     Sign In
                 </Link>
                 )}

@@ -1,12 +1,10 @@
 import { supabase } from '../../../../utils/supabase';
 
-export async function generateMetadata(id) {
-
-    // console.log('id:', id.params.id);
+export async function generateMetadata({ params }) {
     const { data, error } = await supabase
         .from('exercises')
         .select('*')
-        .eq('id', id.params.id)
+        .eq('slug', params.id)
         .single();
 
     if (error) {
@@ -18,8 +16,6 @@ export async function generateMetadata(id) {
         title: `FitFocus - ${data.name}`,
         description: `${data.description}`,
     };
-
-    
 }
 
 export default async function Shoulders({ children }) {

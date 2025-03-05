@@ -20,7 +20,8 @@ export default function SignIn() {
       setError(null)
   
       try {
-        await signIn(email, password)
+        const { data, error } = await signIn(email, password)
+        if (error) throw error
         router.push('/dashboard')
       } catch (error) {
         setError(error.message)
@@ -37,32 +38,50 @@ export default function SignIn() {
             <h2 className="text-center text-3xl font-bold">Sign in to FitFocus</h2>
             </div>
             <form onSubmit={handleSignIn} className="mt-8 space-y-6">
-            <div className="rounded-md shadow-sm flex flex-col gap-4 -space-y-px">
-                <input
-                type="email"
-                placeholder="Email address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="input input-bordered w-full"
-                required
-                />
-                <input
-                type="password"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="input input-bordered w-full mt-4"
-                required
-                />
-            </div>
-            {error && <p className="text-red-500 text-sm">{error}</p>}
-            <button 
-                type="submit" 
-                className="btn btn-primary w-full"
-                disabled={loading}
-            >
-                {loading ? 'Signing in...' : 'Sign in'}
-            </button>
+                <div className="rounded-md shadow-sm flex flex-col gap-4">
+                    <div>
+                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                            Email address
+                        </label>
+                        <input
+                            id="email"
+                            type="email"
+                            placeholder="Enter your email address"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            className="input input-bordered w-full"
+                            required
+                            aria-describedby="email-required"
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+                            Password
+                        </label>
+                        <input
+                            id="password"
+                            type="password"
+                            placeholder="Enter your password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            className="input input-bordered w-full"
+                            required
+                            aria-describedby="password-required"
+                        />
+                    </div>
+                </div>
+                {error && (
+                    <div className="text-red-500 text-sm" role="alert" id="signin-error">
+                        {error}
+                    </div>
+                )}
+                <button 
+                    type="submit" 
+                    className="btn btn-primary w-full"
+                    disabled={loading}
+                >
+                    {loading ? 'Signing in...' : 'Sign in'}
+                </button>
             </form>
             <div className="text-center mt-4">
                 <p className="text-sm text-gray-600">

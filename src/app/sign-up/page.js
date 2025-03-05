@@ -80,67 +80,76 @@ export default function SignUp() {
             <form onSubmit={handleSignUp} className="mt-8 space-y-6">
             <div className="rounded-md shadow-sm space-y-4">
                 <div>
-                    <label htmlFor="name" className="sr-only">
-                    Full Name
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                        Full Name
                     </label>
                     <input
-                    id="name"
-                    type="text"
-                    required
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    className="input input-bordered w-full"
-                    placeholder="Full Name"
+                        id="name"
+                        type="text"
+                        required
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        className="input input-bordered w-full"
+                        placeholder="Enter your full name"
+                        aria-describedby="name-required"
                     />
                 </div>
                 <div>
-                <label htmlFor="email" className="sr-only">
-                    Email address
-                </label>
-                <input
-                    id="email"
-                    type="email"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="input input-bordered w-full"
-                    placeholder="Email address"
-                />
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                        Email address
+                    </label>
+                    <input
+                        id="email"
+                        type="email"
+                        required
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="input input-bordered w-full"
+                        placeholder="Enter your email address"
+                        aria-describedby="email-required"
+                    />
                 </div>
                 <div>
-                <label htmlFor="password" className="sr-only">
-                    Password
-                </label>
-                <input
-                    id="password"
-                    type="password"
-                    required
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="input input-bordered w-full"
-                    placeholder="Password"
-                    minLength={6}
-                />
+                    <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+                        Password
+                    </label>
+                    <input
+                        id="password"
+                        type="password"
+                        required
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        className="input input-bordered w-full"
+                        placeholder="Create a password"
+                        minLength={6}
+                        aria-describedby="password-requirements"
+                    />
+                    <p id="password-requirements" className="text-xs text-gray-500 mt-1">
+                        Password must be at least 6 characters long
+                    </p>
                 </div>
                 <div>
-                <label htmlFor="confirm-password" className="sr-only">
-                    Confirm Password
-                </label>
-                <input
-                    id="confirm-password"
-                    type="password"
-                    required
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    className="input input-bordered w-full"
-                    placeholder="Confirm Password"
-                    minLength={6}
-                />
+                    <label htmlFor="confirm-password" className="block text-sm font-medium text-gray-700 mb-1">
+                        Confirm Password
+                    </label>
+                    <input
+                        id="confirm-password"
+                        type="password"
+                        required
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        className="input input-bordered w-full"
+                        placeholder="Confirm your password"
+                        minLength={6}
+                        aria-describedby="confirm-password-requirements"
+                    />
                 </div>
             </div>
 
             {error && (
-                <div className="text-red-500 text-sm text-center">{error}</div>
+                <div className="text-red-500 text-sm text-center" role="alert" id="signup-error">
+                    {error}
+                </div>
             )}
 
             <button

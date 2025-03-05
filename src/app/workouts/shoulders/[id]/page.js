@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { supabase } from "@/utils/supabase";
+import Image from "next/image";
 import ExerciseInfo from "@/components/workouts/ExerciseInfo"
 
 export default function Page({params}) {
@@ -17,7 +18,7 @@ export default function Page({params}) {
           const { data: workout, error } = await supabase
             .from("exercises")
             .select("*")
-            .eq("id", params.id)
+            .eq("slug", params.id)
     
           if (error) {
             console.error("Error fetching workouts:", error);
@@ -31,7 +32,7 @@ export default function Page({params}) {
             const { data: instructions, error } = await supabase
                 .from("exercise_instructions")
                 .select("*")
-                .eq("exercise_id", params.id)
+                .eq("exercise_id", workout?.id)
             if (error) {
                 console.error("Error fetching workouts:", error);
             } else {
@@ -44,7 +45,7 @@ export default function Page({params}) {
           const { data: exerEquip, error } = await supabase
               .from("exercise_equipment")
               .select("equipment_id(name)")
-              .eq("exercise_id", params.id)
+              .eq("exercise_id", workout?.id)
           if (error) {
               console.error("Error fetching workouts:", error);
           } else {
@@ -56,13 +57,22 @@ export default function Page({params}) {
         fetchWorkout();
         fetchInstructions();
         fetchExerEquipment();
-      }, [params.id]);
+      }, [params.id, workout?.id]);
 
     return (
         <div>
-            <div className="min-h-[10rem] lg:min-h-[20rem] relative bg-cover bg-center min-w-full items-center flex flex-col  justify-center text-white " style={{ backgroundImage: "url('/images/shoulders.jpg')" }}>
-                <h1 className="text-4xl lg:text-8xl font-bold tracking-wider text-shadow-header">{workout.name}</h1>
-            </div>
+            <div className="min-h-[10rem] lg:min-h-[20rem] relative min-w-full items-center flex flex-col justify-center text-white">
+                                <Image
+                                    src="/images/Shoulders.jpg"
+                                    fill
+                                    priority
+                                    sizes="100vw"
+                                    alt="Arm Workouts Banner"
+                                    className="object-cover z-[-1]"
+                                    quality={40}
+                                />
+                            <h1 className="text-4xl lg:text-8xl font-bold tracking-wider text-shadow-header z-10">{workout.name}</h1>
+                        </div>
             <div className="flex flex-col text-center lg:gap-16 items-center py-8">
                 <h1 className="text-lg lg:text-2xl">{workout.description}</h1>
                 <ExerciseInfo image={workout.image_url} instructions={instructions} />

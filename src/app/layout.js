@@ -21,13 +21,13 @@ export default function RootLayout({ children }) {
       <Head>
         <link rel="icon" href="/public/favicon1.png" sizes="any" />
       </Head>
-      <AuthProvider>
-        <body className={k2d.className}>
+      <body className={k2d.className}>
+        <AuthProvider>
           <Header />
           {children}
           <Footer />
-        </body>
-      </AuthProvider>
+        </AuthProvider>
+      </body>
     </html>
   );
 }
