@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Project Inquiry</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: #333333;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #f9f9f9;
+        }
+        .email-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eeeeee;
+        }
+        .content {
+            padding: 20px 0;
+        }
+        h1 {
+            color: #1a73e8;
+            margin-top: 0;
+            font-size: 24px;
+        }
+        .message-box {
+            background-color: #f5f8ff;
+            border-left: 4px solid #1a73e8;
+            padding: 15px;
+            margin: 15px 0;
+            white-space: pre-wrap;
+        }
+        .field-name {
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 5px;
+        }
+        .footer {
+            text-align: center;
+            font-size: 12px;
+            color: #666666;
+            padding: 15px 0;
+            border-top: 1px solid #eeeeee;
+        }
+        .timestamp {
+            color: #999;
+            font-size: 12px;
+            text-align: right;
+            margin-top: 15px;
+        }
+        .project-details {
+            background-color: #f0f7ff;
+            border: 1px solid #1a73e8;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .tag {
+            display: inline-block;
+            background-color: #e8f0fe;
+            color: #1a73e8;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            margin: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <h1>{{project}} Contact form</h1>
+        </div>
+
+        <div class="content">
+            <p>You have received a new inquiry from your portfolio project.</p>
+            
+            <div>
+                <p class="field-name">From:</p>
+                <p>{{1.name}} ({{1.email}})</p>
+            </div>
+
+            <div class="project-details">
+                <p class="field-name">Project:</p>
+                <p>{{1.project}}</p>
+            </div>
+            
+            <div>
+                <p class="field-name">Message:</p>
+                <div class="message-box">{{1.message}}</div>
+            </div>
+
+            <div class="timestamp">
+                Received: {{1.timestamp}}
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>This is an automated message from your portfolio project inquiry system.</p>
+        </div>
+    </div>
+</body>
+</html>

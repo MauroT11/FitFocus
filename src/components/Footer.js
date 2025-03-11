@@ -5,10 +5,10 @@ export default function Footer() {
         <footer className="bg-gradient-to-r from-primary via-secondary to-primary text-white border-t-2 border-primary-content/10">
             <div className="max-w-7xl mx-auto px-4 py-12">
                 <nav className="grid lg:grid-flow-col text-lg gap-8 mb-8 justify-center">
-                    <a className="hover:text-primary-content transition-colors duration-200 font-medium">About us</a>
-                    <a className="hover:text-primary-content transition-colors duration-200 font-medium">Contact</a>
-                    <a className="hover:text-primary-content transition-colors duration-200 font-medium">Jobs</a>
-                    <a className="hover:text-primary-content transition-colors duration-200 font-medium">Press kit</a>
+                    <a className="hover:text-primary-content transition-colors duration-200 font-medium" href="terms-of-service">Terms of Service</a>
+                    <a className="hover:text-primary-content transition-colors duration-200 font-medium" href="privacy-policy">Privacy Policy</a>
+                    <a className="hover:text-primary-content transition-colors duration-200 font-medium" href="about-us">About Us</a>
+                    <a className="hover:text-primary-content transition-colors duration-200 font-medium" href="contact-us">Contact Us</a>
                 </nav>
                 
                 <nav className="mb-8">
