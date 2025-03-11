@@ -26,7 +26,7 @@ export default function page() {
 
       <section className="mb-8">
         <h2 className="text-xl font-semibold mb-4 text-gray-700">4. User Content and Workouts</h2>
-        <p className="text-gray-600 leading-relaxed">While we provide a library of workouts, users may also create and share custom workouts. Users are responsible for any content they post and must ensure it doesn't infringe on any copyrights or contain inappropriate material.</p>
+        <p className="text-gray-600 leading-relaxed">While we provide a library of workouts, users may also create and share custom workouts. Users are responsible for any content they post and must ensure it doesn&lsquo;t infringe on any copyrights or contain inappropriate material.</p>
       </section>
 
       <section className="mb-8">
@@ -46,7 +46,7 @@ export default function page() {
 
       <section className="mb-8">
         <h2 className="text-xl font-semibold mb-4 text-gray-700">8. Limitation of Liability</h2>
-        <p className="text-gray-600 leading-relaxed">FitFocus is provided "as is" without warranties. We are not liable for any injuries, health issues, or damages arising from the use of our tracking tools, workout suggestions, or nutritional guidance.</p>
+        <p className="text-gray-600 leading-relaxed">FitFocus is provided &quot;as is&quot; without warranties. We are not liable for any injuries, health issues, or damages arising from the use of our tracking tools, workout suggestions, or nutritional guidance.</p>
       </section>
 
       <section className="mt-12 text-center border-t pt-8">

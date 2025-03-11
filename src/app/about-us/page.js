@@ -56,8 +56,8 @@ export default function page() {
             <h2 className="text-2xl font-semibold mb-4">Why Choose Us</h2>
             <p className="text-gray-700">
               What sets FitFocus apart is our commitment to providing a comprehensive fitness 
-              solution that adapts to your needs. Whether you're just starting your fitness 
-              journey or you're an experienced athlete, our platform provides the tools and 
+              solution that adapts to your needs. Whether you&lsquo;re just starting your fitness 
+              journey or you&lsquo;re an experienced athlete, our platform provides the tools and 
               support you need to succeed.
             </p>
           </motion.section>
